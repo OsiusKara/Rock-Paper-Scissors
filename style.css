@@ -28,6 +28,8 @@ header {
 }
 
 header h1 {
+  font-family: "Passion One", cursive;
+  letter-spacing: 0.1rem;
   font-size: 3rem;
 }
 
@@ -35,11 +37,15 @@ header h1 {
   color: #fdfdfd;
   justify-content: center;
   text-align: center;
-  margin-top: 2rem;
+  margin: 4rem 0 2rem 0;
 }
 
 .scoreboard-header h2 {
   margin-bottom: 0.5rem;
+}
+
+.scoreboard-header p {
+  opacity: 0.8;
 }
 
 .scoreboard {
@@ -61,11 +67,17 @@ header h1 {
 
 .scores img {
   width: 100px;
+  margin-bottom: 2rem;
+}
+
+.score p {
+  font-size: 1.3rem;
 }
 
 .weapon-container {
   display: flex;
   justify-content: center;
+  margin-top: 2.7rem;
 }
 
 .rsp-buttons {
@@ -73,16 +85,23 @@ header h1 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  margin-top: 1rem;
 }
 
 .weapon {
   width: 150px;
   display: flex;
   justify-content: center;
-  border: 1px solid #fdfdfd;
+  /* border: 1px solid #c6c5c9; */
+  border: 1px solid #f9c024;
+
   border-radius: 5px;
   margin-top: 2rem;
   cursor: pointer;
+}
+.weapon:hover {
+  top: -5px;
+  background-color: #1b263b;
 }
 
 .weapon img {
@@ -91,17 +110,24 @@ header h1 {
 
 /* ================FOOTER=========================== */
 
-/* footer {
+footer {
   color: #fdfdfd;
   display: flex;
   justify-content: center;
-  position: realtive;
-  bottom: 0px;
   padding: 1rem;
+  position: relative;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0px;
+  margin-bottom: 2rem;
 }
 
 .fa-github {
-  color: #fdfdfd;
+  color: #09080a;
   font-size: 24px;
   transition: transform 0.3s ease-in-out;
   margin-left: 0.4rem;
@@ -109,4 +135,4 @@ header h1 {
 
 .fa-github:hover {
   transform: rotate(360deg) scale(1.2);
-} */
+}
