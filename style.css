@@ -1,9 +1,15 @@
+/* font-family: 'Poppins', sans-serif; */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
+  background-color: #1d2e42;
+  font-family: "Poppins", sans-serif;
   height: 100vh;
-  background-color: lightgreen;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 main {
@@ -12,16 +18,95 @@ main {
   justify-content: center;
 }
 
-h1 {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+header {
+  background-color: #1b263b;
+  color: #fdfdfd;
+  padding: 2rem;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 
-p {
+header h1 {
+  font-size: 3rem;
+}
+
+.scoreboard-header {
+  color: #fdfdfd;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.scoreboard-header h2 {
+  margin-bottom: 0.5rem;
+}
+
+.scoreboard {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.scores {
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.scores p {
+  color: #fdfdfd;
   text-align: center;
 }
 
-button {
+.scores img {
+  width: 100px;
+}
+
+.weapon-container {
+  display: flex;
+  justify-content: center;
+}
+
+.rsp-buttons {
+  width: 600px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.weapon {
   width: 150px;
-  margin: 1.5rem auto;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #fdfdfd;
+  border-radius: 5px;
+  margin-top: 2rem;
   cursor: pointer;
 }
+
+.weapon img {
+  width: 100px;
+}
+
+/* ================FOOTER=========================== */
+
+/* footer {
+  color: #fdfdfd;
+  display: flex;
+  justify-content: center;
+  position: realtive;
+  bottom: 0px;
+  padding: 1rem;
+}
+
+.fa-github {
+  color: #fdfdfd;
+  font-size: 24px;
+  transition: transform 0.3s ease-in-out;
+  margin-left: 0.4rem;
+}
+
+.fa-github:hover {
+  transform: rotate(360deg) scale(1.2);
+} */

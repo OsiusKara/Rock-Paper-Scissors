@@ -30,9 +30,7 @@ function playerChoice() {
   let check = validateInput(input);
 
   while (check == false) {
-    input = prompt(
-      "Type Rock, Paper or Scissors. Spelling needs to be exact, but capitilization doesnt matter"
-    );
+    input = prompt("Type Rock, Paper or Scissors. Spelling needs to be exact, but capitilization doesnt matter");
     while (input == null) {
       input = prompt("Type Rock, Paper or Scissors");
     }
@@ -56,11 +54,7 @@ function validateInput(choice) {
 function checkWinner(choiceP, choiceC) {
   if (choiceP === choiceC) {
     return "Tie";
-  } else if (
-    (choiceP == "rock" && choiceC == "scissors") ||
-    (choiceP == "paper" && choiceC == "rock") ||
-    (choiceP == "scissors" && choiceC == "paper")
-  ) {
+  } else if ((choiceP == "rock" && choiceC == "scissors") || (choiceP == "paper" && choiceC == "rock") || (choiceP == "scissors" && choiceC == "paper")) {
     return "Player";
   } else {
     return "Computer";

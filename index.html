@@ -4,16 +4,65 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/4c536a6bd5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style.css" />
 
     <title>Rock Paper Scissors</title>
   </head>
   <body>
+    <header>
+      <h1>Rock Paper and Scissors</h1>
+    </header>
+
     <main>
-      <h1>Rock, Paper and Scissors</h1>
-      <p>This is my first JavaScript Project</p>
-      <button onclick="game()">Start Game</button>
+      <div class="scoreboard">
+        <div class="scoreboard-header">
+          <h2>Choose your Weapon</h2>
+          <p>First to score 5 points wins the game</p>
+        </div>
+
+        <div class="scores">
+          <div class="score">
+            <img src="/images/question.png" alt="" />
+            <p id="player-score">Player:</p>
+          </div>
+
+          <div class="score">
+            <img src="/images/question.png" alt="" />
+            <p id="com-score">Computer:</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="weapon-container">
+        <div class="rsp-buttons">
+          <div class="weapon rock-btn">
+            <img src="./images/rock2.png" alt="" />
+          </div>
+          <div class="weapon paper-btn">
+            <img src="./images/paper.png" alt="" />
+          </div>
+          <div class="weapon scissors-btn">
+            <img src="./images/scissors2.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <!-- <button onclick="game()">Start Game</button> -->
     </main>
+
+    <!-- <footer>
+      <p>
+        Copyright ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        Osius Kara
+      </p>
+      <a href="https://github.com/OsiusKara" target="_blank"> <i class="fab fa-github"></i></a>
+    </footer> -->
 
     <script src="./index.js"></script>
   </body>
