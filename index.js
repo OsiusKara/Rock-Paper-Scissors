@@ -18,7 +18,7 @@ const srcComp = document.getElementById("comp-weapon");
 
 rockBtn.addEventListener("click", function () {
   playerSelection = "rock";
-  rock2image.src = "/images/rock2.png";
+  rock2image.src = "./images/rock2.png";
   srcPlayer.appendChild(rock2image);
   paper2image.classList.add("hidden");
   scissors2image.classList.add("hidden");
@@ -28,7 +28,7 @@ rockBtn.addEventListener("click", function () {
 
 paperBtn.addEventListener("click", function () {
   playerSelection = "paper";
-  paper2image.src = "/images/paper2.png";
+  paper2image.src = "./images/paper2.png";
   rock2image.classList.add("hidden");
   srcPlayer.appendChild(paper2image);
   scissors2image.classList.add("hidden");
@@ -37,7 +37,7 @@ paperBtn.addEventListener("click", function () {
 
 scissorsBtn.addEventListener("click", function () {
   playerSelection = "scissors";
-  scissors2image.src = "/images/scissors2.png";
+  scissors2image.src = "./images/scissors2.png";
   srcPlayer.appendChild(scissors2image);
   paper2image.classList.add("hidden");
   rock2image.classList.add("hidden");
@@ -54,11 +54,11 @@ function displayPlayer() {
 function displayComp(computerSelection) {
   if (computerSelection === "rock") {
     questionMark2.classList.add("hidden");
-    rock2image.src = "/images/rock2.png";
+    rock2image.src = "./images/rock2.png";
     srcComp.appendChild(rock2image);
   } else if (computerSelection === "paper") {
     questionMark2.classList.add("hidden");
-    paper2image.src = "/images/paper2.png";
+    paper2image.src = "./images/paper2.png";
     srcComp.appendChild(paper2image);
   }
 }
