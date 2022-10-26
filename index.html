@@ -29,30 +29,40 @@
 
         <div class="scores">
           <div class="score">
-            <img src="/images/question.png" alt="" />
-            <p id="player-score">Player: 0</p>
+            <div class="scorebox1">
+              <img src="/images/question.png" alt="" />
+              <div id="player-weapon"></div>
+              <p id="player-score">Player: 0</p>
+            </div>
           </div>
+          <div class="versus">VS</div>
 
           <div class="score">
-            <img src="/images/question.png" alt="" />
-            <p id="com-score">Comp: 0</p>
+            <div class="scorebox2">
+              <img src="/images/question.png" alt="" />
+              <div id="comp-weapon"></div>
+              <p id="comp-score">Comp: 0</p>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- <button id="testBtn">Test Btn</button> -->
 
       <div class="weapon-container">
         <div class="rsp-buttons">
-          <div class="weapon rock-btn">
+          <button class="weapon rock-btn">
             <img src="./images/rock.png" alt="" />
-          </div>
-          <div class="weapon paper-btn">
+          </button>
+          <button class="weapon paper-btn">
             <img src="./images/paper.png" alt="" />
-          </div>
-          <div class="weapon scissors-btn">
+          </button>
+          <button class="weapon scissors-btn">
             <img src="./images/scissors.png" alt="" />
-          </div>
+          </button>
         </div>
       </div>
+
       <!-- <button onclick="game()">Start Game</button> -->
     </main>
 

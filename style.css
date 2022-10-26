@@ -65,13 +65,34 @@ header h1 {
   text-align: center;
 }
 
-.scores img {
+.scorebox1 img,
+.scorebox2 img {
   width: 100px;
   margin-bottom: 2rem;
 }
 
+.hidden {
+  display: none;
+}
+
 .score p {
   font-size: 1.3rem;
+  position: sticky;
+}
+
+.score {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.versus {
+  color: #fdfdfd;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1rem;
+  font-size: 2rem;
 }
 
 .weapon-container {
@@ -89,10 +110,9 @@ header h1 {
 }
 
 .weapon {
-  width: 150px;
+  width: 100px;
   display: flex;
   justify-content: center;
-  /* border: 1px solid #c6c5c9; */
   border: 1px solid #f9c024;
 
   border-radius: 5px;
@@ -104,8 +124,23 @@ header h1 {
   background-color: #1b263b;
 }
 
+button {
+  background-color: #1d2e42;
+}
+
 .weapon img {
   width: 100px;
+}
+
+#testBtn {
+  font-size: 1.2rem;
+  margin-top: 3rem;
+  width: 200px;
+  border: none;
+  padding: 5px 10px;
+  background-color: #f4f4f4;
+  cursor: pointer;
+  margin-left: 250px;
 }
 
 /* ================FOOTER=========================== */
