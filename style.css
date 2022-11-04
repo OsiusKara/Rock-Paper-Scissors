@@ -42,6 +42,7 @@ header h1 {
 
 .scoreboard-header h2 {
   margin-bottom: 0.5rem;
+  /* color: #03a303; */
 }
 
 .scoreboard-header p {
@@ -63,6 +64,10 @@ header h1 {
 .scores p {
   color: #fdfdfd;
   text-align: center;
+}
+
+.scorebox-container {
+  height: 169.41px;
 }
 
 .scorebox1 img,
@@ -98,7 +103,7 @@ header h1 {
 .weapon-container {
   display: flex;
   justify-content: center;
-  margin-top: 2.7rem;
+  margin-top: 2rem;
 }
 
 .rsp-buttons {
@@ -110,14 +115,14 @@ header h1 {
 }
 
 .weapon {
-  width: 100px;
+  width: 126px;
   display: flex;
   justify-content: center;
   border: 1px solid #f9c024;
-
   border-radius: 5px;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   cursor: pointer;
+  padding: 0.5rem 0;
 }
 .weapon:hover {
   top: -5px;
