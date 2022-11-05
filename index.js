@@ -21,6 +21,12 @@ const srcPlayer = document.getElementById("player-weapon");
 const srcComp = document.getElementById("comp-weapon");
 
 const scoreBoardHeader = document.getElementById("score-header");
+const scoreMessage = document.getElementById("score-message");
+
+const computerSelection = computerChoice();
+
+const playerScoring = document.getElementById("player-score");
+const compScoring = document.getElementById("comp-score");
 
 let playerScore = 0;
 let computerScore = 0;
@@ -71,21 +77,17 @@ function displayPlayer() {
   console.log("PlayerChoice: " + playerSelection);
 }
 
-// Computer Selection -------------------------------------------------->
+// Computer Selection ------------------------------------------------------->
 function displayComp() {
-  const computerSelection = computerChoice();
   questionMark2.classList.add("hidden");
 
   if (computerSelection === "rock") {
-    srcPlayer.appendChild(rock3image);
     rock3image.src = "./images/rock3.png";
     srcComp.appendChild(rock3image);
   } else if (computerSelection === "paper") {
-    srcPlayer.appendChild(paper3image);
     paper3image.src = "./images/paper3.png";
     srcComp.appendChild(paper3image);
   } else {
-    srcPlayer.appendChild(scissors3image);
     scissors3image.src = "./images/scissors3.png";
     srcComp.appendChild(scissors3image);
   }
@@ -100,20 +102,16 @@ function computerChoice() {
 
 // Play Round------------------------------------------------------------->
 function playRound() {
-  const computerSelection = computerChoice();
-
   if (playerSelection === computerSelection) {
     roundWinner = "tie";
-    // console.log(roundWinner);
   } else if ((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "paper") || (playerSelection === "paper" && computerSelection === "rock")) {
     playerScore++;
     roundWinner = "player";
-    // console.log(roundWinner + " wins");
   } else if ((computerSelection === "rock" && playerSelection === "scissors") || (computerSelection === "scissors" && playerSelection === "paper") || (computerSelection === "paper" && playerSelection === "rock")) {
     computerScore++;
     roundWinner = "computer";
-    // console.log(roundWinner + " wins");
   }
+  updateScoreMessage(roundWinner, playerSelection, computerSelection);
 }
 
 // Update Header Round Winner-------------------------------------------->
@@ -128,6 +126,31 @@ function updateScore() {
     scoreBoardHeader.textContent = "Computer Won!";
     scoreBoardHeader.style.color = "#e20b0b";
   }
+  playerScoring.textContent = `Player: ${playerScore}`;
+  compScoring.textContent = `Comp: ${computerScore}`;
+}
+
+//Update Score Message------------------------------------------------->
+
+function updateScoreMessage(winner, playerSelection, computerSelection) {
+  if (winner === "player") {
+    scoreMessage.textContent = `${capitalizeFirstLetter(playerSelection)} beats ${capitalizeFirstLetter(computerSelection)}`;
+    scoreMessage.style.fontSize = "1.2rem";
+    return;
+  }
+  if (winner === "computer") {
+    scoreMessage.textContent = `${capitalizeFirstLetter(playerSelection)} is beaten by ${capitalizeFirstLetter(computerSelection)}`;
+    scoreMessage.style.fontSize = "1.2rem";
+    return;
+  } else {
+    scoreMessage.textContent = `${capitalizeFirstLetter(playerSelection)} ties with ${capitalizeFirstLetter(computerSelection)}`;
+    scoreMessage.style.fontSize = "1.2rem";
+    return;
+  }
+}
+
+function capitalizeFirstLetter(string) {
+  return string[0].toUpperCase() + string.substring(1);
 }
 
 // function game() {
