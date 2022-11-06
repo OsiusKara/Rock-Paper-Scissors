@@ -1,4 +1,3 @@
-// Global variables----------------------------------------------------->
 const choices = ["rock", "paper", "scissors"];
 const winners = [];
 
@@ -23,14 +22,22 @@ const srcComp = document.getElementById("comp-weapon");
 const scoreBoardHeader = document.getElementById("score-header");
 const scoreMessage = document.getElementById("score-message");
 
-const computerSelection = computerChoice();
+const playerScoring = document.getElementById("player-scoring");
+const compScoring = document.getElementById("comp-scoring");
 
-const playerScoring = document.getElementById("player-score");
-const compScoring = document.getElementById("comp-score");
+const finalMsg = document.getElementById("final-message");
+
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const btnCloseModal = document.querySelector(".close-modal");
+const playAgain = document.getElementById("play-again");
+
+const computerSelection = computerChoice();
 
 let playerScore = 0;
 let computerScore = 0;
 let roundWinner = "";
+let i = 0;
 
 // Player Selection --------------------------------------------------------->
 rockBtn.addEventListener("click", function () {
@@ -77,7 +84,6 @@ function displayPlayer() {
   console.log("PlayerChoice: " + playerSelection);
 }
 
-// Computer Selection ------------------------------------------------------->
 function displayComp() {
   questionMark2.classList.add("hidden");
 
@@ -91,16 +97,15 @@ function displayComp() {
     scissors3image.src = "./images/scissors3.png";
     srcComp.appendChild(scissors3image);
   }
+
   console.log("ComputerChoice: " + computerSelection);
   console.log("====================");
 }
 
-//Computer Choice random------------------------------------------------->
 function computerChoice() {
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
-// Play Round------------------------------------------------------------->
 function playRound() {
   if (playerSelection === computerSelection) {
     roundWinner = "tie";
@@ -112,9 +117,10 @@ function playRound() {
     roundWinner = "computer";
   }
   updateScoreMessage(roundWinner, playerSelection, computerSelection);
+
+  game();
 }
 
-// Update Header Round Winner-------------------------------------------->
 function updateScore() {
   if (roundWinner === "tie") {
     scoreBoardHeader.textContent = "It's a Tie!";
@@ -130,22 +136,17 @@ function updateScore() {
   compScoring.textContent = `Comp: ${computerScore}`;
 }
 
-//Update Score Message------------------------------------------------->
-
 function updateScoreMessage(winner, playerSelection, computerSelection) {
   if (winner === "player") {
     scoreMessage.textContent = `${capitalizeFirstLetter(playerSelection)} beats ${capitalizeFirstLetter(computerSelection)}`;
     scoreMessage.style.fontSize = "1.2rem";
-    return;
   }
   if (winner === "computer") {
     scoreMessage.textContent = `${capitalizeFirstLetter(playerSelection)} is beaten by ${capitalizeFirstLetter(computerSelection)}`;
     scoreMessage.style.fontSize = "1.2rem";
-    return;
   } else {
     scoreMessage.textContent = `${capitalizeFirstLetter(playerSelection)} ties with ${capitalizeFirstLetter(computerSelection)}`;
     scoreMessage.style.fontSize = "1.2rem";
-    return;
   }
 }
 
@@ -153,32 +154,56 @@ function capitalizeFirstLetter(string) {
   return string[0].toUpperCase() + string.substring(1);
 }
 
-// function game() {
-//   // 5 rounds
-//   for (let i = 1; i <= 5; i++) {
-//     playRound(i);
-//   }
-//   document.querySelector("button").textContent = "Play Again";
-//   logWins();
-// }
+function game() {
+  if (playerScore === 5) {
+    finalMsg.textContent = "You Won!";
+    finalMsg.style.color = "#03a303";
+  }
 
-// function playRound(round) {
-//   const playerSelection = playerChoice();
-//   const computerSelection = computerChoice();
-//   const winner = checkWinner(playerSelection, computerSelection);
-//   winners.push(winner);
-//   // logRound(playerSelection, computerSelection, winner, round);
-// }
+  if (computerScore === 5) {
+    finalMsg.textContent = "You Lost!";
+    finalMsg.style.color = "#ee3232";
+  }
 
-// function checkWinner(choiceP, choiceC) {
-//   if (choiceP === choiceC) {
-//     console.log("IT'S A TIE!");
-//     return "Tie";
-//   } else if ((choiceP == "rock" && choiceC == "scissors") || (choiceP == "paper" && choiceC == "rock") || (choiceP == "scissors" && choiceC == "paper")) {
-//     console.log("PLAYER WINS");
-//     return "Player";
-//   } else {
-//     console.log("COMPUTER WINS");
-//     return "Computer";
-//   }
-// }
+  if (playerScore === 5 || computerScore === 5) {
+    endGame();
+  }
+}
+
+function endGame() {
+  modal.classList.remove("hidden2");
+  overlay.classList.remove("hidden2");
+}
+
+btnCloseModal.addEventListener("click", function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+  resetGame();
+});
+
+playAgain.addEventListener("click", function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+  resetGame();
+});
+
+function resetGame() {
+  playerScore = 0;
+  computerScore = 0;
+  roundWinner = "";
+  i = 0;
+  scoreBoardHeader.textContent = "Choose your Weapon";
+  scoreBoardHeader.style.color = "#fdfdfd";
+  scoreMessage.textContent = "First to score 5 points wins the game";
+  scoreMessage.style.fontSize = "1rem";
+  questionMark1.classList.remove("hidden");
+  questionMark2.classList.remove("hidden");
+  rock2image.classList.add("hidden");
+  paper2image.classList.add("hidden");
+  scissors2image.classList.add("hidden");
+  rock3image.classList.add("hidden");
+  paper3image.classList.add("hidden");
+  scissors3image.classList.add("hidden");
+  playerScoring.textContent = "Player: 0";
+  compScoring.textContent = "Comp: 0";
+}
